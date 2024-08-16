@@ -1,31 +1,58 @@
 #include <stdio.h>
-int main ()
+
+int main()
 {
-    int a=0;
+    int t = 0;
+    printf("Enter matrix number:\n");
+    scanf("%d", &t);
+  
+    int n = t;
+    int matrix[n][n];
 
-    printf("กรอกเลข");
-    scanf("%d",&a);
-
-    int matrix[a][a];
-
-        for(int i = 0; i < n; i++);
+    
+    if (n % 2 == 0)
     {
-            if (i == j)
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
             {
-                matrix[i][j] = 1;
-            }
-           else
-           {
-            matrix[i]{j} =0;
-           }
-    }
-    printf("%d%d",n,n);
-    for (int i = 0; i < n; i++);
+                if (i == j)
+                {
+                    matrix[i][j] = 1;
+                }
+                else
+                {
+                    matrix[i][j] = 0;
+                }//end if else
+            }//end for loop
+        }//end for loop
+    }//end if else
+    else
     {
-        for (int j = 0; j < n; j++){
-            printf("%d",matrix[i][j]);
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                if (i + j == n - 1)
+                {
+                    matrix[i][j] = 1;
+                }
+                else
+                {
+                    matrix[i][j] = 0;
+                }//end if else
+            }//end for loop
+        }//end for loop
+    }//end else
+    printf("Matrix %dx%d:\n", n, n);
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            printf("%d ", matrix[i][j]);
         }
-        printf("\n")
-    }
+        printf("\n");
+    }//end for loop
+
     return 0;
-}
+}//end main function
