@@ -15,23 +15,32 @@ struct Student
 // ฟังก์ชันสำหรับคำนวณเกรด
 char calculateGrade(float score)
 {
-    if (score >= 80)
-        return 'A';
-    else if (score >= 70)
-        return 'B';
-    else if (score >= 60)
-        return 'C';
-    else if (score >= 50)
-        return 'D';
+    if (score > 100 || score <0)
+    {
+        printf("Invalid score") ;
+        return 0 ;
+    }
     else
-        return 'F';
+    {
+        if (score >= 80)
+            return 'A';
+        else if (score >= 70)
+            return 'B';
+        else if (score >= 60)
+            return 'C';
+        else if (score >= 50)
+            return 'D';
+        else
+            return 'F';
+    }
+
 } // end function
 
 // ฟังก์ชันแสดงผลเกรดของนักเรียนแต่ละคน
 void displayGrades(S student)
 { // creation function displayGrade
-    printf("\nGrades for %s (ID: %s):\n", student.Name, student.ID);
-    printf("Subject 1: %.2f - Grade %c\n", student.ScoreSub1, calculateGrade(student.ScoreSub1));
+    printf( "\nGrades for %s ( ID: %s ):\n" , student.Name , student.ID ) ;
+    printf("Subject 1: %.2f - Grade %c\n" , student.ScoreSub1, calculateGrade(student.ScoreSub1)) ;
     printf("Subject 2: %.2f - Grade %c\n", student.ScoreSub2, calculateGrade(student.ScoreSub2));
     printf("Subject 3: %.2f - Grade %c\n", student.ScoreSub3, calculateGrade(student.ScoreSub3));
     printf("Subject 4: %.2f - Grade %c\n", student.ScoreSub4, calculateGrade(student.ScoreSub4));
@@ -49,9 +58,9 @@ int main()
         printf("\nStudent %d:\n", i + 1);
 
         printf("Name: ");
-        getchar(); // Clear buffer
+        getchar(); // Clear buffer in integer or string
         fgets(students[i].Name, 20, stdin);
-        students[i].Name[strcspn(students[i].Name, "\n")] = 0; // Remove newline
+        students[i].Name[strcspn(students[i].Name, "\n")] = 0; // Remove newline from fgets
 
         printf("ID: ");
         scanf("%s", students[i].ID);
